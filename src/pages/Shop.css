@@ -15,3 +15,29 @@
     flex-direction: column;
     gap: 5em;
 }
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3em;
+    padding: 1em 2.5em;
+    width: 80%;
+}
+
+.store-item {
+    height: 100%;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 1em;
+}
+
+.item-image {
+    height: 70%;
+    width: 100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.item-card-info {
+    padding: 1em;
+    color: black;
+}

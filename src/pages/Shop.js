@@ -6,6 +6,7 @@ import categories from '../data/categories';
 const Shop = () => {
     const [items, setItems] = useState([]);
     const [category, setCategory] = useState();
+
     const params = useParams();
 
     useEffect(() => {
@@ -59,11 +60,23 @@ const Shop = () => {
             <div className="items">
                 {items.map((item) => {
                     return (
-                        <h1 key={item.id}>
+                        <div className="store-item" key={item.id}>
                             <Link to={`/shop/products/${item.id}`}>
-                                {item.title}
+                                <img
+                                    className="item-image"
+                                    src={item.images[0]}
+                                    alt=""
+                                />
+                                <div className="item-card-info">
+                                    <h2 className="item-card-title">
+                                        {item.title}
+                                    </h2>
+                                    <p className="item-card-price">
+                                        ${item.price}.00
+                                    </p>
+                                </div>
                             </Link>
-                        </h1>
+                        </div>
                     );
                 })}
             </div>

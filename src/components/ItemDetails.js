@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ItemDetails = () => {
+const ItemDetails = (props) => {
     const [item, setItem] = useState([]);
     const params = useParams();
+    const { addItem } = props;
 
-    useEffect(() => {
-        getItem();
-    }, []);
+    const addItemToCart = () => {
+        addItem(item);
+    };
 
     const getItem = async () => {
         const data = await fetch(
@@ -16,9 +17,14 @@ const ItemDetails = () => {
         setItem(data);
     };
 
+    useEffect(() => {
+        getItem();
+    }, []);
+
     return (
         <div className="item-container">
             <h1>{item.title}</h1>
+            <button onClick={addItemToCart}>Add to cart</button>
         </div>
     );
 };
