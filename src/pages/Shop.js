@@ -10,7 +10,6 @@ const Shop = () => {
     const params = useParams();
 
     useEffect(() => {
-        setItems([]);
         if (!params['category']) {
             setCategory('All Products');
             fetchAllItems();

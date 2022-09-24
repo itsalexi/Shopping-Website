@@ -2,11 +2,34 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Nav from './components/Nav';
+import ShoppingCart from './pages/ShoppingCart';
 import ItemDetails from './components/ItemDetails';
 import { useEffect, useState } from 'react';
 
 const App = () => {
     const [cart, setCart] = useState([]);
+
+    const addQuantity = (id) => {
+        const currentCart = [...cart];
+        const cartItem = currentCart.find((obj) => obj.id === Number(id));
+        cartItem.amount++;
+        setCart(currentCart);
+    };
+
+    const removeQuantity = (id) => {
+        const currentCart = [...cart];
+        const cartItem = currentCart.find((obj) => obj.id === Number(id));
+
+        if (cartItem.amount === 1) {
+            console.log('is this getting triggered?');
+            let newCart = currentCart.filter((obj) => obj.id !== Number(id));
+            console.log(newCart);
+            setCart(newCart);
+        } else {
+            cartItem.amount--;
+            setCart(currentCart);
+        }
+    };
 
     const addCart = (item) => {
         const currentCart = [...cart];
@@ -30,9 +53,9 @@ const App = () => {
         }
     };
 
-    useEffect(() => {
-        console.log('react is reacting:', cart);
-    }, [cart]);
+    // useEffect(() => {
+    //     console.log('react is reacting:', cart);
+    // }, [cart]);
 
     return (
         <BrowserRouter>
@@ -40,6 +63,16 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />}></Route>
+                <Route
+                    path="/cart"
+                    element={
+                        <ShoppingCart
+                            addItem={addQuantity}
+                            removeItem={removeQuantity}
+                            cart={cart}
+                        />
+                    }
+                ></Route>
                 <Route path="/shop/:category" element={<Shop />}></Route>
                 <Route
                     path="/shop/products/:id"
