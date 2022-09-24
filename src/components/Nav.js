@@ -7,16 +7,16 @@ const Nav = (props) => {
         <div className="navbar">
             <ul className="navbar-links">
                 <div className="navbar-left">
-                    <Link to="/">
+                    <Link to="/Shopping-Website/">
                         <li className="navbar-logo">Shopping Website</li>
                     </Link>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/shop">
+                    <Link to="/Shopping-Website/shop">
                         <li className="shop-btn">Shop</li>
                     </Link>
                     <div className="btn-cart">
-                        <Link to="/cart">
+                        <Link to="/Shopping-Website/cart">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="32"

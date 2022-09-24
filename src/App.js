@@ -77,10 +77,10 @@ const App = () => {
         <BrowserRouter>
             <Nav quantity={quantity} />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/shop" element={<Shop />}></Route>
+                <Route path="/Shopping-Website/" element={<Home />} />
+                <Route path="/Shopping-Website/shop" element={<Shop />}></Route>
                 <Route
-                    path="/cart"
+                    path="/Shopping-Website/cart"
                     element={
                         <ShoppingCart
                             addItem={addQuantity}
@@ -90,9 +90,12 @@ const App = () => {
                         />
                     }
                 ></Route>
-                <Route path="/shop/:category" element={<Shop />}></Route>
                 <Route
-                    path="/shop/products/:id"
+                    path="/Shopping-Website/shop/:category"
+                    element={<Shop />}
+                ></Route>
+                <Route
+                    path="/Shopping-Website/shop/products/:id"
                     element={<ItemDetails addItem={addCart} />}
                 ></Route>
             </Routes>
