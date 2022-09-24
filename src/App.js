@@ -8,11 +8,13 @@ import { useEffect, useState } from 'react';
 
 const App = () => {
     const [cart, setCart] = useState([]);
+    const [quantity, setQuantity] = useState(0);
 
     const addQuantity = (id) => {
         const currentCart = [...cart];
         const cartItem = currentCart.find((obj) => obj.id === Number(id));
         cartItem.amount++;
+        setQuantity(quantity + 1);
         setCart(currentCart);
     };
 
@@ -25,7 +27,9 @@ const App = () => {
             let newCart = currentCart.filter((obj) => obj.id !== Number(id));
             console.log(newCart);
             setCart(newCart);
+            setQuantity(quantity - 1);
         } else {
+            setQuantity(quantity - 1);
             cartItem.amount--;
             setCart(currentCart);
         }
@@ -38,6 +42,7 @@ const App = () => {
 
         if (isCartItem) {
             isCartItem.amount++;
+            setQuantity(quantity + 1);
             setCart(currentCart);
         } else {
             let newCartItem = {};
@@ -50,16 +55,13 @@ const App = () => {
             };
             newCart = currentCart.concat(newCartItem);
             setCart(newCart);
+            setQuantity(quantity + 1);
         }
     };
 
-    // useEffect(() => {
-    //     console.log('react is reacting:', cart);
-    // }, [cart]);
-
     return (
         <BrowserRouter>
-            <Nav />
+            <Nav quantity={quantity} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />}></Route>

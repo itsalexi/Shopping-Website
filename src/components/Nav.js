@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = (props) => {
+    const { quantity } = props;
     return (
         <div className="navbar">
             <ul className="navbar-links">
@@ -12,20 +13,21 @@ const Nav = () => {
                 </div>
                 <div className="navbar-right">
                     <Link to="/shop">
-                        <li>Shop</li>
+                        <li className='shop-btn'>Shop</li>
                     </Link>
                     <Link to="/cart">
-                        <button className="btn-cart">
+                        <div className="btn-cart">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
+                                width="32"
+                                height="32"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
                             >
                                 <path d="M16 6v-2c0-2.209-1.791-4-4-4s-4 1.791-4 4v2h-5v18h18v-18h-5zm-7-2c0-1.654 1.346-3 3-3s3 1.346 3 3v2h-6v-2zm10 18h-14v-14h3v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h3v14z"></path>
                             </svg>
-                        </button>
+                            <p className="quantity-text">({quantity} items)</p>
+                        </div>
                     </Link>
                 </div>
             </ul>

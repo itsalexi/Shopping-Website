@@ -21,10 +21,22 @@
     display: flex;
     gap: 2em;
     align-items: center;
+    font-weight: bold;
 }
 
 .btn-cart {
+    display: flex;
+    gap: 0.5em;
     background: none;
     border: none;
     cursor: pointer;
+    align-items: center;
+}
+
+.quantity-text {
+    font-size: 1.5em;
+}
+
+.shop-btn {
+    font-size: 1.5em;
 }
