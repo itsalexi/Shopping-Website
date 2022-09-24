@@ -10,8 +10,12 @@ const App = () => {
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/shop" exact element={<Shop />}></Route>
-                <Route path="/shop/:id" element={<ItemDetails />}></Route>
+                <Route path="/shop" element={<Shop />}></Route>
+                <Route path="/shop/:category" element={<Shop />}></Route>
+                <Route
+                    path="/shop/products/:id"
+                    element={<ItemDetails />}
+                ></Route>
             </Routes>
         </BrowserRouter>
     );
