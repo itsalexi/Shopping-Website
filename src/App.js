@@ -9,12 +9,29 @@ const App = () => {
     const [cart, setCart] = useState([]);
 
     const addCart = (item) => {
-        let newCart = cart.concat(item);
-        setCart(newCart);
+        const currentCart = [...cart];
+        const id = item.id;
+        let isCartItem = currentCart.find((obj) => obj.id === Number(id));
+
+        if (isCartItem) {
+            isCartItem.amount++;
+            setCart(currentCart);
+        } else {
+            let newCartItem = {};
+            let newCart;
+            newCartItem = {
+                id: item.id,
+                name: item.title,
+                price: item.price,
+                amount: 1,
+            };
+            newCart = currentCart.concat(newCartItem);
+            setCart(newCart);
+        }
     };
 
     useEffect(() => {
-        console.log(cart);
+        console.log('react is reacting:', cart);
     }, [cart]);
 
     return (
