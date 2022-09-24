@@ -1,7 +1,6 @@
 .shopping-container,
 .item-container,
 .cart-container {
-    min-height: 100vh;
     padding: 2em;
     padding-top: 7em;
 }
@@ -26,7 +25,7 @@
 
 .store-item {
     height: 100%;
-    width: 300px;
+    max-width: 300px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 1em;
 }
@@ -41,4 +40,29 @@
 .item-card-info {
     padding: 1em;
     color: black;
+}
+
+@media (max-width: 550px) {
+    .home-container,
+    .shopping-container,
+    .cart-container {
+        padding-top: 9em;
+    }
+
+    .shopping-container {
+        flex-direction: column;
+        padding-top: 12em;
+        align-items: center;
+        gap: 2em;
+    }
+
+    .category-container {
+        align-items: center;
+        gap: 2em;
+    }
+
+    .categories,
+    .current-category {
+        text-align: center;
+    }
 }

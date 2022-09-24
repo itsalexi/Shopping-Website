@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 const App = () => {
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(0);
+    const [cartValue, setCartValue] = useState(0);
 
     const addQuantity = (id) => {
         const currentCart = [...cart];
@@ -17,6 +18,18 @@ const App = () => {
         setQuantity(quantity + 1);
         setCart(currentCart);
     };
+
+    useEffect(() => {
+        let newCartValue = cart.reduce(
+            (n, { amount, price }) => n + amount * price,
+            0
+        );
+        setCartValue(newCartValue);
+    }, [cart]);
+
+    useEffect(() => {
+        console.log(cartValue);
+    }, [cartValue]);
 
     const removeQuantity = (id) => {
         const currentCart = [...cart];
@@ -51,6 +64,7 @@ const App = () => {
                 id: item.id,
                 name: item.title,
                 price: item.price,
+                img: item.images[0],
                 amount: 1,
             };
             newCart = currentCart.concat(newCartItem);
@@ -72,6 +86,7 @@ const App = () => {
                             addItem={addQuantity}
                             removeItem={removeQuantity}
                             cart={cart}
+                            cartValue={cartValue}
                         />
                     }
                 ></Route>

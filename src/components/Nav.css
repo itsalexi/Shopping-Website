@@ -25,16 +25,19 @@
 }
 
 .btn-cart {
+    width: 100%;
+    flex: 2;
+}
+
+.btn-cart a {
     display: flex;
     gap: 0.5em;
-    background: none;
-    border: none;
     cursor: pointer;
     align-items: center;
 }
 
 .quantity-text {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 .shop-btn {
