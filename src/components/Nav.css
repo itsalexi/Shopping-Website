@@ -1,0 +1,30 @@
+.navbar {
+    position: absolute;
+    padding: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 100%;
+}
+
+.navbar-links {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.btn-cart {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
