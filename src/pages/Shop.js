@@ -1,25 +1,23 @@
 import './Shop.css';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import categories from '../data/categories';
+
 const Shop = () => {
     const [items, setItems] = useState([]);
-    const [categories, setCategories] = useState([]);
-
+    const [category, setCategory] = useState();
     const params = useParams();
 
     useEffect(() => {
         setItems([]);
         if (!params['category']) {
+            setCategory('All Products');
             fetchAllItems();
         }
         if (params['category']) {
             fetchCategoryItems(params.category);
         }
     }, [params]);
-
-    useEffect(() => {
-        fetchCategories();
-    }, []);
 
     const fetchAllItems = async () => {
         const data = await fetch(
@@ -29,33 +27,34 @@ const Shop = () => {
     };
 
     const fetchCategoryItems = async (id) => {
+        const currentCategory = categories.find((obj) => obj.id === Number(id));
+        setCategory(currentCategory.name);
+
         const data = await fetch(
             `https://api.escuelajs.co/api/v1/categories/${id}/products`
         ).then((response) => response.json());
+
         setItems(data);
-    };
-
-    const fetchCategories = async () => {
-        const data = await fetch(
-            'https://api.escuelajs.co/api/v1/categories/'
-        ).then((response) => response.json());
-
-        const fiveCateg = data.slice(0, 5);
-        setCategories(fiveCateg);
     };
 
     return (
         <div className="shopping-container">
-            <div className="categories">
-                {categories.map((category) => {
-                    return (
-                        <h1 key={category.id}>
-                            <Link to={`/shop/${category.id}`}>
-                                {category.name}
-                            </Link>
-                        </h1>
-                    );
-                })}
+            <div className="category-container">
+                <div className="current-category">
+                    <h2>Current Category</h2>
+                    <h1>{category}</h1>
+                </div>
+                <div className="categories">
+                    {categories.map((category) => {
+                        return (
+                            <h2 key={category.id}>
+                                <Link to={`/shop/${category.id}`}>
+                                    {category.name}
+                                </Link>
+                            </h2>
+                        );
+                    })}
+                </div>
             </div>
             <div className="items">
                 {items.map((item) => {

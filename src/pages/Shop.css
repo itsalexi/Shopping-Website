@@ -4,3 +4,14 @@
     padding: 2em;
     padding-top: 7em;
 }
+
+.shopping-container {
+    display: flex;
+    gap: 5em;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
