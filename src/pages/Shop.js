@@ -47,7 +47,7 @@ const Shop = () => {
                 <div className="categories">
                     {categories.map((category) => {
                         return (
-                            <h2 key={category.id}>
+                            <h2 className="categoryText" key={category.id}>
                                 <Link to={`/shop/${category.id}`}>
                                     {category.name}
                                 </Link>

@@ -15,6 +15,13 @@
     flex-direction: column;
     gap: 5em;
 }
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
 .items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -30,6 +37,11 @@
     border-radius: 1em;
 }
 
+.store-item:hover {
+    transform: scale(1.03);
+    transition: all 0.2s;
+}
+
 .item-image {
     height: 70%;
     width: 100%;
@@ -42,11 +54,21 @@
     color: black;
 }
 
+.categoryText:hover {
+    border-bottom: 5px solid yellow;
+    transition: all 0.2s;
+}
+
 @media (max-width: 550px) {
     .home-container,
     .shopping-container,
-    .cart-container {
+    .cart-container,
+    .item-container {
         padding-top: 9em;
+    }
+
+    .categories {
+        gap: 0;
     }
 
     .shopping-container {

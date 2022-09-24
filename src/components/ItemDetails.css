@@ -1,0 +1,34 @@
+.item {
+    display: flex;
+    border: 1px solid black;
+    padding: 2em;
+}
+
+.item-title {
+    font-size: 2.5em;
+}
+
+.item-description {
+    font-size: 1.5em;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 50%;
+    padding: 2em;
+}
+.item-picture {
+    max-width: 100%;
+}
+
+@media (max-width: 550px) {
+    .item {
+        flex-direction: column;
+    }
+
+    .item-info {
+        width: 100%;
+    }
+}

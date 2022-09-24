@@ -1,5 +1,34 @@
 .homepage-container {
-    min-height: 100vh;
+    min-height: 140vh;
     padding: 2em;
     padding-top: 7em;
+    background-image: url('https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617559');
+    background-size: cover;
+    background-position: center;
+}
+
+.homepage-text {
+    margin-top: 15%;
+    margin-left: 3%;
+    font-size: 2em;
+}
+
+.shop-now {
+    margin-top: 0.5em;
+    background-color: none;
+    font-size: 0.75em;
+    padding: 0.25em 1em;
+}
+@media (max-width: 550px) {
+    .homepage-container {
+        text-align: center;
+    }
+
+    .homepage-text {
+        margin-top: 5%;
+        margin-left: 0;
+    }
+    .cart-item-image {
+        max-width: 12em;
+    }
 }

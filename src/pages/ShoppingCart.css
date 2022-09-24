@@ -1,6 +1,8 @@
-.cart-container {
+.cart-container,
+.item-container {
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 }
 
 .cart {
@@ -68,13 +70,13 @@
 .checkout-button {
     padding: 0.25em;
     background: none;
-    font-size: 1em;
+    font-size: 2em;
 }
 
 .return-button:hover,
-.checkout-button:hover {
-    background-color: rgb(236, 230, 230);
-    color: white;
+.checkout-button:hover,
+.shop-now:hover {
+    background-color: rgb(211, 128, 128);
     transition: all 0.2s;
     cursor: pointer;
 }
