@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Nav from './components/Nav';
@@ -74,13 +74,13 @@ const App = () => {
     };
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Nav quantity={quantity} />
             <Routes>
-                <Route path="/Shopping-Website/" element={<Home />} />
-                <Route path="/Shopping-Website/shop" element={<Shop />}></Route>
+                <Route path="/" element={<Home />} />
+                <Route path="/shop" element={<Shop />}></Route>
                 <Route
-                    path="/Shopping-Website/cart"
+                    path="/cart"
                     element={
                         <ShoppingCart
                             addItem={addQuantity}
@@ -90,16 +90,13 @@ const App = () => {
                         />
                     }
                 ></Route>
+                <Route path="/shop/:category" element={<Shop />}></Route>
                 <Route
-                    path="/Shopping-Website/shop/:category"
-                    element={<Shop />}
-                ></Route>
-                <Route
-                    path="/Shopping-Website/shop/products/:id"
+                    path="/shop/products/:id"
                     element={<ItemDetails addItem={addCart} />}
                 ></Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

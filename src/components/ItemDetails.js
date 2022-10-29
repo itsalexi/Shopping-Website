@@ -37,7 +37,7 @@ const ItemDetails = (props) => {
                         ADD TO CART
                     </button>
                     <button className="return-button">
-                        <Link to="/Shopping-Website/shop">RETURN TO STORE</Link>
+                        <Link to="/shop">RETURN TO STORE</Link>
                     </button>
                 </div>
             </div>

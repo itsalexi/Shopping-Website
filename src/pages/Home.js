@@ -7,7 +7,7 @@ const Home = () => {
                 <h1>IPhone 14</h1>
                 <p>Now available for pre-order</p>
                 <button className="shop-now">
-                    <Link to="/Shopping-Website/shop">SHOP NOW</Link>
+                    <Link to="/shop">SHOP NOW</Link>
                 </button>
             </div>
         </div>

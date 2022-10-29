@@ -48,7 +48,7 @@ const Shop = () => {
                     {categories.map((category) => {
                         return (
                             <h2 className="categoryText" key={category.id}>
-                                <Link to={`/Shopping-Website/shop/${category.id}`}>
+                                <Link to={`/shop/${category.id}`}>
                                     {category.name}
                                 </Link>
                             </h2>
@@ -60,7 +60,7 @@ const Shop = () => {
                 {items.map((item) => {
                     return (
                         <div className="store-item" key={item.id}>
-                            <Link to={`/Shopping-Website/shop/products/${item.id}`}>
+                            <Link to={`/shop/products/${item.id}`}>
                                 <img
                                     className="item-image"
                                     src={item.images[0]}
